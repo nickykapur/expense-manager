@@ -6,8 +6,10 @@ import { UpcomingPage } from '@/pages/UpcomingPage'
 import { HistoryPage } from '@/pages/HistoryPage'
 import { StocksPage } from '@/pages/StocksPage'
 import { CryptoPage } from '@/pages/CryptoPage'
+import { PaycheckPage } from '@/pages/PaycheckPage'
 
 const PAGES: Record<TabId, React.ReactNode> = {
+  paycheck: <PaycheckPage />,
   expenses: <ExpensesPage />,
   upcoming: <UpcomingPage />,
   history: <HistoryPage />,
@@ -16,7 +18,7 @@ const PAGES: Record<TabId, React.ReactNode> = {
 }
 
 export default function App() {
-  const [activeTab, setActiveTab] = useState<TabId>('expenses')
+  const [activeTab, setActiveTab] = useState<TabId>('paycheck')
 
   return (
     <div className="min-h-screen bg-background">

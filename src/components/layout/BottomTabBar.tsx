@@ -1,9 +1,10 @@
 import { cn } from '@/lib/utils'
-import { Wallet, Clock, History, TrendingUp, Bitcoin } from 'lucide-react'
+import { Wallet, Clock, History, TrendingUp, Bitcoin, Banknote } from 'lucide-react'
 
-export type TabId = 'expenses' | 'upcoming' | 'history' | 'stocks' | 'crypto'
+export type TabId = 'paycheck' | 'expenses' | 'upcoming' | 'history' | 'stocks' | 'crypto'
 
 const TABS: { id: TabId; label: string; Icon: React.ElementType }[] = [
+  { id: 'paycheck', label: 'Paycheck', Icon: Banknote },
   { id: 'expenses', label: 'Expenses', Icon: Wallet },
   { id: 'upcoming', label: 'Upcoming', Icon: Clock },
   { id: 'history', label: 'History', Icon: History },
@@ -19,7 +20,7 @@ interface BottomTabBarProps {
 export function BottomTabBar({ active, onChange }: BottomTabBarProps) {
   return (
     <nav className="fixed bottom-0 left-0 right-0 z-40 border-t border-border bg-card/95 backdrop-blur-md pb-safe">
-      <div className="flex items-stretch max-w-2xl mx-auto">
+      <div className="flex items-stretch max-w-2xl mx-auto overflow-x-auto scrollbar-none">
         {TABS.map(({ id, label, Icon }) => (
           <button
             key={id}
